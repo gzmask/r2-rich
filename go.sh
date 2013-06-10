@@ -1,0 +1,1 @@
+lispy -r server.ls

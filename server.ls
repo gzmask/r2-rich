@@ -1,13 +1,9 @@
-(include "html.ls")
+(include "views/index.ls")
 
 (var express (require 'express'))
 (var app (express))
 
-(var index (html
-             (head
-               (title "richever tech")
-             (body
-               (div "welcome")))))
+(app.use (express.static (+ __dirname '/client')))
 
 (app.get '/' (function (req res)
                        (res.send index)))

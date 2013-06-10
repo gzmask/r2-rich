@@ -31,9 +31,10 @@ _LS.expandTag = function(name,attr) {
         })() :
         "");
 };
+var index = ("<!DOCTYPE html>\n" + _LS.expandTag("html",{lang:"en"},_LS.expandTag("head",_LS.expandTag("title","richever tech"),_LS.expandTag("script",{type:"text/javascript", src:"code/main.js"})),_LS.expandTag("body",_LS.expandTag("div","welcome"))));
 var express = require('express');
 var app = express();
-var index = ("<!DOCTYPE html>\n" + _LS.expandTag("html",_LS.expandTag("head",_LS.expandTag("title","richever tech"),_LS.expandTag("body",_LS.expandTag("div","welcome")))));
+app.use(express.static((__dirname + '/client')));
 app.get('/',function(req,res) {
     return res.send(index);
 });
